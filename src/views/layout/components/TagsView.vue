@@ -1,16 +1,23 @@
 <template>
   <div class="tags-view-container">
-    <nx-scroll-pane class='tags-view-wrapper' ref='scrollPane'>
-      <router-link ref='tag' class="tags-view-item" :class="isActive(tag)?'active':''" v-for="tag in Array.from(visitedViews)"
-        :to="tag.path" :key="tag.path" @contextmenu.prevent.native="openMenu(tag,$event)">
-        {{generateTitle(tag.title)}}
-        <span class='el-icon-close' @click.prevent.stop='closeSelectedTag(tag)'></span>
+    <nx-scroll-pane ref="scrollPane" class="tags-view-wrapper">
+      <router-link
+        v-for="tag in Array.from(visitedViews)"
+        ref="tag"
+        :key="tag.path"
+        class="tags-view-item"
+        :class="isActive(tag)?'active':''"
+        :to="tag.path"
+        @contextmenu.prevent.native="openMenu(tag,$event)"
+      >
+        {{ generateTitle(tag.title) }}
+        <span class="el-icon-close" @click.prevent.stop="closeSelectedTag(tag)" />
       </router-link>
     </nx-scroll-pane>
-    <ul class='contextmenu' v-show="visible" :style="{left:left+'px',top:top+'px'}">
-      <li @click="closeSelectedTag(selectedTag)">{{$t('tagsView.close')}}</li>
-      <li @click="closeOthersTags">{{$t('tagsView.closeOthers')}}</li>
-      <li @click="closeAllTags">{{$t('tagsView.closeAll')}}</li>
+    <ul v-show="visible" class="contextmenu" :style="{left:left+'px',top:top+'px'}">
+      <li @click="closeSelectedTag(selectedTag)">{{ $t('tagsView.close') }}</li>
+      <li @click="closeOthersTags">{{ $t('tagsView.closeOthers') }}</li>
+      <li @click="closeAllTags">{{ $t('tagsView.closeAll') }}</li>
     </ul>
   </div>
 </template>
@@ -20,7 +27,7 @@ import nxScrollPane from '@/components/nx-scroll-pane'
 import { generateTitle } from '@/utils/i18n'
 
 export default {
-  name: 'tagsView',
+  name: 'TagsView',
   components: { nxScrollPane },
   data() {
     return {

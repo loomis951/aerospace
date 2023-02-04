@@ -1,32 +1,32 @@
 <template>
   <el-menu class="navbar" mode="horizontal">
-    <nx-hamburger class="hamburger-container" :toggleClick="toggleSideBar" :isActive="sidebar.opened"></nx-hamburger>
+    <!-- <nx-hamburger class="hamburger-container" :toggle-click="toggleSideBar" :is-active="sidebar.opened" /> -->
 
-    <nx-breadcrumb class="breadcrumb-container"></nx-breadcrumb>
+    <!-- <nx-breadcrumb class="breadcrumb-container" /> -->
 
     <div class="right-menu">
-     <error-log class="errLog-container right-menu-item"></error-log>
+      <!-- <error-log class="errLog-container right-menu-item" /> -->
 
-      <nx-github style="margin-top:2px" class="nx-help right-menu-item"></nx-github>
+      <!-- <nx-github style="margin-top:2px" class="nx-help right-menu-item" /> -->
       <!-- <error-log class="errLog-container right-menu-item"></error-log> -->
-      <nx-help class="nx-help right-menu-item" />
-      <nx-top-lock style="cursor:pointer" class="nx-help"></nx-top-lock>
-      <el-tooltip effect="dark" content="全屏" placement="bottom">
-        <nx-full-screen class="screenfull right-menu-item"></nx-full-screen>
-      </el-tooltip>
+      <!-- <nx-help class="nx-help right-menu-item" /> -->
+      <!-- <nx-top-lock style="cursor:pointer" class="nx-help" /> -->
+      <!-- <el-tooltip effect="dark" content="全屏" placement="bottom"> -->
+        <!-- <nx-full-screen class="screenfull right-menu-item" /> -->
+      <!-- </el-tooltip> -->
 
       <!-- <lang-select class="international right-menu-item"></lang-select> -->
-      <nx-lang-select class="international right-menu-item"></nx-lang-select>
+      <!-- <nx-lang-select class="international right-menu-item" /> -->
 
-      <el-tooltip effect="dark" content="主题" placement="bottom">
+      <!-- <el-tooltip effect="dark" content="主题" placement="bottom"> -->
         <!-- <theme-picker class="theme-switch right-menu-item"></theme-picker> -->
-        <nx-skin class="theme-switch right-menu-item"></nx-skin>
-      </el-tooltip>
+        <!-- <nx-skin class="theme-switch right-menu-item" /> -->
+      <!-- </el-tooltip> -->
 
       <el-dropdown class="avatar-container right-menu-item" trigger="click">
         <div class="avatar-wrapper">
-          <img class="user-avatar" src="https://mgbq.github.io/nx-admin-site/home.png">
-          <i class="el-icon-caret-bottom"></i>
+          <img class="user-avatar" src="@/assets/images/default-user.png">
+          <i class="el-icon-caret-bottom" />
         </div>
         <el-dropdown-menu slot="dropdown">
           <router-link to="/">
@@ -34,13 +34,8 @@
               home
             </el-dropdown-item>
           </router-link>
-          <a target='_blank' href="https://github.com/mgbq/nx-admin/">
-            <el-dropdown-item>
-              github地址
-            </el-dropdown-item>
-          </a>
           <el-dropdown-item divided>
-            <span @click="logout" style="display:block;">退出</span>
+            <span style="display:block;" @click="logout">退出</span>
           </el-dropdown-item>
         </el-dropdown-menu>
       </el-dropdown>
@@ -60,7 +55,7 @@ import nxLangSelect from '@/components/nx-lang-select/index'
 import nxSkin from '@/components/nx-skin/index'
 import nxGithub from '@/components/nx-github/index'
 export default {
-  name: 'navBar',
+  name: 'NavBar',
   components: {
     nxBreadcrumb,
     nxHamburger,
